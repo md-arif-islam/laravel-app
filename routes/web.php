@@ -17,10 +17,13 @@ Route::get( '/', function () {
     return view( 'welcome' );
 } );
 
-Route::get( '/hello', function () {
-    return "Hello Uniserve!";
+Route::get( '/info/{value}', function ( $value ) {
+    return view( "info", [
+        "value" => $value,
+    ] );
 } );
 
-Route::get( '/hello/{params}', function ( $params ) {
-    return "Hello {$params}";
+Route::post( '/say', function ( Request $request ) {
+    $all = $request->all();
+    print_r( $all );
 } );

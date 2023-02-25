@@ -17,13 +17,7 @@ Route::get( '/', function () {
     return view( 'welcome' );
 } );
 
-Route::get( '/info/{value}', function ( $value ) {
-    return view( "info", [
-        "value" => $value,
-    ] );
-} );
+Route::view( '/about', 'about' );
+Route::view( '/contact', 'contact' );
 
-Route::post( '/say', function ( Request $request ) {
-    $all = $request->all();
-    print_r( $all );
-} );
+Route::get( 'user', [UserController::class, "show"] );

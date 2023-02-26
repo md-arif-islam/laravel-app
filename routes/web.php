@@ -17,4 +17,10 @@ Route::get( '/', function () {
     return view( 'welcome' );
 } );
 
+Route::middleware( ["age_protected"] )->group( function () {
+    Route::view( '/about', 'about' );
+    Route::view( '/contact', 'contact' );
+
+} );
+
 Route::view( '/noaccess', 'noaccess' );

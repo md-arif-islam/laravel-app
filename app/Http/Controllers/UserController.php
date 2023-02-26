@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class UserController extends Controller {
-    public function usersData() {
-        $users = ["Arif", "Afrina", "Akhi"];
-        return view( "users", ["users" => $users] );
+    public function loginForm( Request $request ) {
+        return $request->input();
     }
 }

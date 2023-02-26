@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +17,4 @@ Route::get( '/', function () {
     return view( 'welcome' );
 } );
 
-Route::view( '/about', 'about' );
-Route::view( '/contact', 'contact' );
-
-Route::view( '/login', "login" );
-Route::post( "/users", [UserController::class, "loginForm"] );
+Route::view( '/noaccess', 'noaccess' );

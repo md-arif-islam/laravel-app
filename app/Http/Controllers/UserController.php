@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Request;
 
 class UserController extends Controller {
 
-    public function index() {
-        $data = Http::get( "https://reqres.in/api/users?page=1" );
-        return view( "users", ["data" => $data['data']] );
+    public function fileUpload( Request $request ) {
+        return $request->file( "file" )->store( "img" );
+
     }
 
 }

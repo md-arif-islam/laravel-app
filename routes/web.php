@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get( '/', function () {
     return view( 'welcome' );
 } );
-
-Route::get( 'users', [UserController::class, "index"] );
+Route::view( "login", "login" );
+Route::post( 'users', [UserController::class, "fileUpload"] );

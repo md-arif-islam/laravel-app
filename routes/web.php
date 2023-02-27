@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,4 @@ Route::get( '/', function () {
     return view( 'welcome' );
 } );
 
-Route::view( '/about', 'about' )->middleware( "age_protected" );
-Route::view( '/contact', 'contact' );
-
-Route::view( '/noaccess', 'noaccess' );
+Route::get( 'users', [UserController::class, "index"] );

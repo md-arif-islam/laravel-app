@@ -26,11 +26,13 @@ class PeopleController extends Controller {
         //$people People::where('id', '>',1)->count(); =
         // $person = People::whereEmail( 'jessy@doe.com' )->first();
         //$person People::whereName('John Doe II')->first()->displayName AndEmail(); =
-        $person = People::find( 1 );
-        $person->name = "John Doe";
-        $person->save();
-
+        // $person = People::find( 1 );
+        // $person->name = "John Doe";
+        // $person->save();
         // $person = $person->fresh();
-        return $person;
+
+        $person = People::find( 1 );
+        $posts = $person->posts;
+        return $posts;
     }
 }

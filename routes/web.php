@@ -18,4 +18,4 @@ Route::get( '/', function () {
     return view( 'welcome' );
 } );
 Route::view( "adduser", "adduser" );
-Route::get( 'test', [PeopleController::class, "testModel"] );
+Route::post( '/adduser', [PeopleController::class, "addUser"] );

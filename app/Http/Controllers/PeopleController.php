@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\People;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class PeopleController extends Controller {
-    function allPeople() {
+    // function allPeople() {
 
-        //return ((array) DB:: table('people')->where('id', '>',1)->first());
-        return ( DB::table( 'people' )
-            //->select(['id', 'name'])
-                ->where( 'id', '>', 2 )
-                ->where( 'id', '<', 4 )->orderBy( 'id', 'desc' )
-                ->limit( 3 )
-                ->get( ['id', 'name'] ) );
-        //return (DB::select("select id, name from people")); ·
-    }
+    //     //return ((array) DB:: table('people')->where('id', '>',1)->first());
+    //     return ( DB::table( 'people' )
+    //         //->select(['id', 'name'])
+    //             ->where( 'id', '>', 2 )
+    //             ->where( 'id', '<', 4 )->orderBy( 'id', 'desc' )
+    //             ->limit( 3 )
+    //             ->get( ['id', 'name'] ) );
+    //     //return (DB::select("select id, name from people")); ·
+    // }
 
     function testModel() {
 
@@ -35,4 +35,18 @@ class PeopleController extends Controller {
         $posts = $person->posts;
         return $posts;
     }
+
+    public function addUser( Request $request ) {
+        $name = $request->input( "name" );
+        $email = $request->input( "email" );
+        $email = $request->input( "email" );
+
+        $people = new People();
+        $people->name = $name;
+        $people->email = $email;
+        $people->save();
+
+        return redirect( "/" );
+    }
+
 }
